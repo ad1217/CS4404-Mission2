@@ -24,6 +24,6 @@ def verdict_cb(ll_data, ll_proto_id, data, ctx):
 
 ictor = interceptor.Interceptor()
 try:
-    ictor.start(verdict_cb, queue_ids=[0, 1, 2])
+    ictor.start(verdict_cb, queue_ids=[0])
 except KeyboardInterrupt:
     ictor.stop()
