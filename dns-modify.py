@@ -14,7 +14,8 @@ def verdict_cb(ll_data, ll_proto_id, data, ctx):
         dns1 = ip1[dns.DNS]
 
         for answer in dns1.answers:
-            if answer.type == dns.DNS_A:
+            if answer.type == dns.DNS_A and answer.name_s in TARGET_HOSTNAMES:
+                print("Modified a DNS response for", answer.name_s)
                 answer.address = OUR_SERVER
 
         # force recalculation of UDP checksum, seems to be a bug in pypacker
